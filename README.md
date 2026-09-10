@@ -90,7 +90,7 @@ To archive, send `{"archived":true}` to the update endpoint. Archived links retu
 - **400**: malformed JSON, invalid/unsupported URL, invalid title, invalid alias, or empty update.
 - **404**: missing link, or an archived link requested through a tracked endpoint.
 - **409**: requested custom alias already exists.
-- **503**: random code generation exhausted collision retries (extremely unlikely).
+- **503**: database unavailable, or random code generation exhausted collision retries (extremely unlikely).
 - Error format: `{"error":"A readable explanation."}`.
 - URLs must use HTTP or HTTPS and a dotted hostname, be at most 4,096 characters, and contain no embedded credentials. The service does not fetch destination contents.
 
@@ -126,6 +126,18 @@ node scripts/test-ui.mjs
 ```
 
 This test checks desktop rendering, link creation and editing, archive/delete controls, analytics, API documentation, ZIP download, and mobile navigation. Run `python3 scripts/package-source.py` first so the downloadable ZIP is present. Screenshots are saved in `artifacts/`. Like the API test, it removes its temporary link afterward.
+
+## Useful commands
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server on `http://localhost:3000` |
+| `npm run build` | Create an optimized production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | Run ESLint |
+| `npm run typecheck` | Run TypeScript without emitting files |
+| `npx drizzle-kit push` | Apply the Drizzle schema to the configured database |
+| `npx tsx scripts/seed.ts` | Add the optional sample links |
 
 ## Source ZIP
 
