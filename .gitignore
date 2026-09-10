@@ -1,0 +1,9 @@
+node_modules/
+.next/
+.env
+.env.local
+.env.*.local
+*.tsbuildinfo
+public/downloads/*.zip
+artifacts/
+.DS_Store
